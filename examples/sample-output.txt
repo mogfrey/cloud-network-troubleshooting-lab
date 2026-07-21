@@ -1,0 +1,36 @@
+==== Request ====
+Timestamp (UTC): 2026-07-21T09:00:00Z
+Target:          api.internal.example.com:8443/health
+Hostname:        lab-wsl.example.com
+Kernel:          Linux 6.x x86_64 GNU/Linux
+
+==== DNS answers ====
+10.42.20.15    STREAM api.internal.example.com
+10.42.20.15    DGRAM
+10.42.20.15    RAW
+
+==== Route selection ====
+10.42.20.15 -> 10.42.20.15 via 10.42.0.1 dev eth0 src 10.42.10.25
+
+==== TCP reachability ====
+Testing 10.42.20.15:8443 ... connected
+
+==== TLS handshake and certificate ====
+subject=CN = api.internal.example.com
+issuer=CN = Example Internal Issuing CA 01
+notBefore=Jul 01 00:00:00 2026 GMT
+notAfter=Sep 29 23:59:59 2026 GMT
+X509v3 Subject Alternative Name:
+    DNS:api.internal.example.com
+
+==== HTTP response ====
+< HTTP/1.1 200 OK
+< content-type: application/json
+< content-length: 15
+
+==== Summary ====
+Resolved IPv4 addresses: 10.42.20.15
+At least one TCP connection succeeded: yes
+Interpret each failed layer before changing firewall, DNS or application configuration.
+
+This output is generated example data and does not represent a real environment.
