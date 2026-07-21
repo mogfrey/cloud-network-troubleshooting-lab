@@ -27,7 +27,7 @@ jobs:
       - name: Validate usage error handling
         run: |
           set +e
-          scripts/cloud-netdiag.sh >/tmp/netdiag-output.txt 2>&1
+          bash scripts/cloud-netdiag.sh >/tmp/netdiag-output.txt 2>&1
           status=$?
           set -e
           cat /tmp/netdiag-output.txt
