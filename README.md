@@ -17,7 +17,12 @@ Do not collapse all of those layers into “the firewall.” Each produces diffe
 - Transit Gateway and hub/transit connectivity runbook
 - Private DNS and split-horizon runbook
 - TLS certificate and SNI runbook
+- Oracle Data Guard role-aware failover case study using Azure Private Link, Load Balancer, HAProxy, managed identity and Key Vault
 - A repeatable investigation method and evidence checklist
+
+## Featured case study
+
+[**Oracle Role-Aware Failover Proxy**](case-studies/oracle-role-aware-failover/README.md) — a sanitized production-style design that replaces static DNAT-based Oracle failover with fail-closed, role-aware HAProxy routing. The implementation demonstrates Oracle `DATABASE_ROLE` detection, Azure managed identity, Key Vault secret retrieval, systemd automation, service-aware Load Balancer health checks and reversible cutover design.
 
 ## Repository layout
 
@@ -29,7 +34,16 @@ Do not collapse all of those layers into “the firewall.” Each produces diffe
 ├── runbooks/private-dns.md
 ├── runbooks/tls-and-sni.md
 ├── docs/troubleshooting-method.md
-└── examples/sample-output.txt
+├── examples/sample-output.txt
+└── case-studies/oracle-role-aware-failover/
+    ├── README.md
+    ├── haproxy.cfg
+    ├── check-oracle-roles.sh
+    ├── select-primary.sh
+    └── systemd/
+        ├── oracle-haproxy.service
+        ├── oracle-primary-selector.service
+        └── oracle-primary-selector.timer
 ```
 
 ## Run the diagnostic script
