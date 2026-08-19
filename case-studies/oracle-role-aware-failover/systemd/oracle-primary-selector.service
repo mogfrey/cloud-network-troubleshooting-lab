@@ -1,0 +1,12 @@
+[Unit]
+Description=Oracle Data Guard Primary Selector
+Requires=oracle-haproxy.service
+After=oracle-haproxy.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/oracle-router/select-primary.sh
+
+# Exit 2 is an intentional fail-closed result. Treat it as a completed
+# evaluation so the timer continues to check for recovery.
+SuccessExitStatus=2
