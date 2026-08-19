@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodically Detect Oracle Data Guard Primary
+
+[Timer]
+OnBootSec=10s
+OnUnitActiveSec=15s
+AccuracySec=1s
+Unit=oracle-primary-selector.service
+
+[Install]
+WantedBy=timers.target
